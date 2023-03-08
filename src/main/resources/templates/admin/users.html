@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head th:replace="fragments/header :: head"></head>
+<body>
+    <nav th:replace="fragments/navbar :: nav"></nav>
+    <div class="container" th:fragment="content">
+        <h3>Users</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Email</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user: ${users}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td><a th:href="@{/edit-user/(id=${user.id})}">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

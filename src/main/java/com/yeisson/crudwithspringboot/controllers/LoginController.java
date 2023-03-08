@@ -1,5 +1,6 @@
 package com.yeisson.crudwithspringboot.controllers;
 
+import com.yeisson.crudwithspringboot.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,8 @@ public class LoginController {
         System.out.println("Email: " + email + " password: " + password);
         if(email.equalsIgnoreCase("yeisson@test.com") && password.equalsIgnoreCase("12345")) {
             model.addAttribute("message", "Login Ok!");
+            User user = new User();
+
         } else {
             model.addAttribute("error", "Email or password incorrect!");
         }
